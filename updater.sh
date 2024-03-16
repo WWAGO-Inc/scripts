@@ -14,7 +14,8 @@ clear
 echo Searching for Paper...
 if [ -e "$JAR_NAME" ]; then
     echo "$PROJECT is Already at the Latest Version!"
-    echo "Starting..."
+    echo "Starting Server..."
+    ./cache/startserver.sh
 else
     echo "$PROJECT is out of Date!"
     find . -type f ! -name "$JAR_NAME" -name "$PROJECT*" -exec rm -v {} \;
@@ -24,5 +25,6 @@ else
 	curl -so server.jar $PAPERMC_URL
 	mv server.jar $JAR_NAME
 	echo "Success!"
-	echo "Starting..."
+	echo "Starting Server..."
+	./cache/startserver.sh
 fi
